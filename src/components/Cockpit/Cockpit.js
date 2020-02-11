@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Cockpit.css'
 
 const cockpit = (props) => {
+  useEffect(() => {
+    console.log('[Cockpit.js] useEffect');
+    // Http request....
+    setTimeout(()=>{
+      alert('Saved data to cloud!');
+    }, 1000);
+  }, [props.persons]);
 
     const assignedClasses = [];
     let btnClass = '';
@@ -27,4 +34,4 @@ const cockpit = (props) => {
     ); 
 };
 
-export default cockpit;
+export default React.memo(cockpit);
